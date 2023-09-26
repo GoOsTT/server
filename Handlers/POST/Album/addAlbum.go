@@ -1,4 +1,4 @@
-package POST
+package POSTALBUM
 
 import (
 	"net/http"

@@ -2,8 +2,8 @@ package main
 
 import (
 	GET "main/Handlers/GET"
-	POST "main/Handlers/POST/ALBUM"
-	LOGIN "main/Handlers/POST/AUTH"
+	POST_ALBUM "main/Handlers/POST/ALBUM"
+	POST_AUTH "main/Handlers/POST/AUTH"
 	AUTHMIDDLEWARE "main/Middleware"
 
 	"github.com/gin-gonic/gin"
@@ -20,10 +20,10 @@ func main() {
 
     //Authenticated Routes
     //POST routes
-    router.POST("/albums", AUTHMIDDLEWARE.AuthMiddleware ,POST.AddAlbum)
+    router.POST("/albums", AUTHMIDDLEWARE.AuthMiddleware, POST_ALBUM.AddAlbum)
 
     //Authentication routes
-    router.POST("/login", LOGIN.LoginHandler)
+    router.POST("/login", POST_AUTH.LoginHandler)
 
     router.Run("localhost:8080")
 }
